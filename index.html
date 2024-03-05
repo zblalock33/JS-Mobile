@@ -49,7 +49,7 @@
   ], (esriConfig, Map, MapView, Locate, Search) => {
 
         //adding in API Key
-        esriConfig.apiKey = "AAPK00ddc6c61269498ab49a78dd3e1855c401j7v7tHZGdSr9EqleiMNXbGGQ4FhL4bjHBddV3SIP3kptKOVGSgowuEJkPRVfUT";
+        esriConfig.apiKey = "YOUR_API_KEY_HERE";
 
         const map = new Map({
               basemap: "satellite"
@@ -84,6 +84,15 @@
         // Add the search widget to the top right corner of the view
         view.ui.add(searchWidget, {
             position: "top-right"
+        });
+
+        // Apply custom styles after the view and widgets are ready
+        view.when(() => {
+            // Apply custom styles to the search widget elements
+            const searchElements = view.ui.find(searchWidget.id);
+            if (searchElements) {
+                searchElements.container.classList.add('esri-search-custom');
+            }
         });
 
   });
