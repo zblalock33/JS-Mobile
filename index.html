@@ -1,58 +1,52 @@
-
 <!DOCTYPE html>
- <html>
-  <head>
-    <!-- meta for the browser to allow for mobile first design -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+<html>
+<head>
+  <!-- meta for the browser to allow for mobile first design -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 
-   <title>Data Collector for AGOL</title>
+  <title>Data Collector for AGOL</title>
 
-<style>
-    html,
-    body,
-    #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-    }
-</style>
+  <style>
+      html,
+      body,
+      #viewDiv {
+          padding: 0;
+          margin: 0;
+          height: 100%;
+          width: 100%;
+      }
+  </style>
 
-    <!--importing the css and libraries for esri.js-->
-   <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
-   <script src="https://js.arcgis.com/4.26/"></script>
-    
+  <!--importing the css and libraries for esri.js-->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.26/"></script>
 
-    <!--loading the modules-->
-   <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView" ], (esriConfig, Map, MapView) => {
+  <!--loading the modules-->
+  <script>
+  require(["esri/config", "esri/Map", "esri/views/MapView"], (esriConfig, Map, MapView) => {
 
-          //adding in API Key
-          esriConfig.apiKey = "AAPK00ddc6c61269498ab49a78dd3e1855c401j7v7tHZGdSr9EqleiMNXbGGQ4FhL4bjHBddV3SIP3kptKOVGSgowuEJkPRVfUT";
+        //adding in API Key
+        esriConfig.apiKey = "AAPK00ddc6c61269498ab49a78dd3e1855c401j7v7tHZGdSr9EqleiMNXbGGQ4FhL4bjHBddV3SIP3kptKOVGSgowuEJkPRVfUT";
 
-     const map= new Map({
-            basemap: "satellite"
-     });
+        const map = new Map({
+              basemap: "satellite"
+        });
 
+        // Set the initial center and zoom level
+        const view = new MapView({
+              container: "viewDiv", // Reference to the DOM node that will contain the view
+              map: map, // References the map object
+              center: [-98.5795, 39.8283], // Longitude, Latitude for the geographic center of the US
+              zoom: 3 // Zoom level to see the whole of the US at start
+        });
 
-     const view= new MapView({
-            container : "viewDiv", // Reference to the DOM node that will contain the view
-            map: map // References the map object
-     });
+  });
+  </script>
+</head>
 
-    });
-
-
-    </script>
-
-  </head>
-
-
-
-  <body>
-
-   <div id="viewDiv"></div>
-   <h1>JS Mobile</h1>
-  </body>
+<body>
+  <div id="viewDiv"></div>
+  <h1>JS Mobile</h1>
+</body>
 </html>
