@@ -18,7 +18,7 @@
       }
 
       /* Custom styling for the Search widget */
-      .esri-search {
+      .esri-search .esri-search__container {
           background-color: black !important;
           color: white !important;
       }
@@ -27,7 +27,7 @@
           color: white !important;
       }
 
-      .esri-search .esri-search__submit-button {
+      .esri-search .esri-button {
           background-color: black !important;
           color: white !important;
       }
@@ -49,7 +49,7 @@
   ], (esriConfig, Map, MapView, Locate, Search) => {
 
         //adding in API Key
-        esriConfig.apiKey = "AAPK00ddc6c61269498ab49a78dd3e1855c401j7v7tHZGdSr9EqleiMNXbGGQ4FhL4bjHBddV3SIP3kptKOVGSgowuEJkPRVfUT";
+        esriConfig.apiKey = "YOUR_API_KEY_HERE";
 
         const map = new Map({
               basemap: "satellite"
