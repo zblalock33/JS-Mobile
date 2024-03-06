@@ -17,6 +17,21 @@
         width: 100%;
     }
 
+    .app-title {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #FFFFFF; /* White text color */
+        background-color: #8B0000; /* Dark red background */
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 18px;
+        text-align: center;
+    }
+
+
     .addRecordBtn {
         position: absolute;
         z-index: 10;
@@ -125,7 +140,7 @@
 </head>
 
 <body>
-
+  <header class="app-title">Blalock JS Mobile App</header>
   <a href="https://arcg.is/rvbbD0" target="_blank" class="addRecordBtn">Add Record</a>
   <div id="searchWidgetDiv"></div> <!-- Container for the search widget -->
   <div id="viewDiv"></div>
