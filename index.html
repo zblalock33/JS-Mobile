@@ -3,7 +3,7 @@
 <head>
   <!-- meta for the browser to allow for mobile first design -->
   <meta charset="utf-8" />
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 
   <title>Data Collector for AGOL</title>
 
@@ -18,64 +18,62 @@
     }
 
     .app-title {
-        position: absolute;
+        position: fixed; /* Changed to fixed for better mobile experience */
         z-index: 10;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #FFFFFF; /* White text color */
-        background-color: #8B0000; /* Dark red background */
-        padding: 8px 16px;
-        border-radius: 4px;
+        top: 0; /* Align to the top */
+        left: 0; /* Align to the left */
+        width: 100%; /* Full width */
+        color: #FFFFFF;
+        background-color: #8B0000;
+        padding: 8px 0; /* Adjusted padding for uniform spacing */
+        border-radius: 0; /* Removed border-radius for full-width header */
         font-size: 18px;
         text-align: center;
+        box-sizing: border-box; /* Include padding in width calculation */
     }
 
-    .addRecordBtn {
-        position: absolute;
-        z-index: 10;
-        top: 50px; /* Adjust based on the height of your title */
-        right: 10px;
-        background-color: #8B0000; 
-        color: black;
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        font-size: 14px;
-        cursor: pointer;
-        text-decoration: none;
-    }
-
-    .addRecordBtn:hover {
-        background-color: #640000; 
-    }
-
+    .addRecordBtn,
     .toggle-search-btn {
-        position: absolute;
+        position: fixed; /* Changed to fixed for better mobile experience */
         z-index: 10;
-        top: 130px; /* Adjust based on the height of your Add Record button and title */
-        right: 10px;
-        background-color: #8B0000; 
+        bottom: 10px; /* Align to the bottom for easy thumb access */
+        background-color: #8B0000;
         color: white;
         padding: 8px 16px;
         border: none;
         border-radius: 4px;
         font-size: 14px;
         cursor: pointer;
+        text-decoration: none;
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+
+    .addRecordBtn {
+        right: 10px; /* Align to the right */
+    }
+
+    .toggle-search-btn {
+        left: 10px; /* Align to the left */
+    }
+
+    .addRecordBtn:hover,
+    .toggle-search-btn:hover {
+        background-color: #640000;
     }
 
     #searchWidgetDiv {
-        display: none; /* Initially hide the search widget */
-        position: absolute;
+        display: none;
+        position: fixed; /* Changed to fixed for better mobile experience */
         z-index: 10;
-        top: 170px; /* Adjust based on the height of your Add Record button and toggle button */
-        right: 10px;
-        width: 300px; /* Adjust based on your preference */
+        top: 60px; /* Adjusted to be below the title */
+        left: 0; /* Full width alignment */
+        right: 0; /* Full width alignment */
+        padding: 0 10px; /* Padding for some space on the sides */
+        box-sizing: border-box; /* Include padding in width calculation */
     }
 
-    /* Custom styling for the Search widget */
     .esri-search .esri-search__container {
-        background-color: #8B0000 !important; 
+        background-color: #8B0000 !important;
         color: black !important;
     }
 
@@ -84,7 +82,7 @@
     }
 
     .esri-search .esri-button {
-        background-color: #8B0000 !important; 
+        background-color: #8B0000 !important;
         color: black !important;
     }
 
