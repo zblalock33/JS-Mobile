@@ -9,47 +9,55 @@
 
   <style>
     html,
-      body,
-      #viewDiv {
-          padding: 0;
-          margin: 0;
-          height: 100%;
-          width: 100%;
-      }
+    body,
+    #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+    }
 
-      .addRecordBtn {
-          position: absolute;
-          z-index: 10;
-          top: 10px;
-          right: 10px;
-          background-color: #8B0000; 
-          color: black;
-          padding: 8px 16px;
-          border: none;
-          border-radius: 4px;
-          font-size: 14px;
-          cursor: pointer;
-          text-decoration: none;
-      }
+    .addRecordBtn {
+        position: absolute;
+        z-index: 10;
+        top: 10px;
+        right: 10px;
+        background-color: #8B0000; 
+        color: black;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+    }
 
-      .addRecordBtn:hover {
-          background-color: #640000; 
-      }
+    .addRecordBtn:hover {
+        background-color: #640000; 
+    }
 
-      /* Custom styling for the Search widget */
-      .esri-search .esri-search__container {
-          background-color: #8B0000 !important; 
-          color: black !important;
-      }
+    #searchWidgetDiv {
+        position: absolute;
+        z-index: 10;
+        top: 50px; /* Adjust based on the height of your Add Record button */
+        right: 10px;
+        width: 300px; /* Adjust based on your preference */
+    }
 
-      .esri-search .esri-input {
-          color: black !important;
-      }
+    /* Custom styling for the Search widget */
+    .esri-search .esri-search__container {
+        background-color: #8B0000 !important; 
+        color: black !important;
+    }
 
-      .esri-search .esri-button {
-          background-color: #8B0000 !important; 
-          color: black !important;
-      }
+    .esri-search .esri-input {
+        color: black !important;
+    }
+
+    .esri-search .esri-button {
+        background-color: #8B0000 !important; 
+        color: black !important;
+    }
 
   </style>
 
@@ -66,7 +74,7 @@
     "esri/widgets/Locate", 
     "esri/widgets/Search",
     "esri/layers/FeatureLayer"
-  ], (esriConfig, Map, MapView, Locate, Search,FeatureLayer) => {
+  ], (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
 
         //adding in API Key
         esriConfig.apiKey = "AAPK00ddc6c61269498ab49a78dd3e1855c401j7v7tHZGdSr9EqleiMNXbGGQ4FhL4bjHBddV3SIP3kptKOVGSgowuEJkPRVfUT";
@@ -101,6 +109,7 @@
         // Create the Search widget and configure its parameters
         const searchWidget = new Search({
             view: view,
+            container: "searchWidgetDiv", // Specify the container for the search widget
             popupEnabled: true,
             popupOpenOnSelect: true,
             resultGraphicEnabled: true,
@@ -110,11 +119,6 @@
         // Adding the survey123 layer to the map
         map.add(layer);
 
-        // Add the search widget to the top right corner of the view
-        view.ui.add(searchWidget, {
-            position: "top"
-        });
-
   });
 
   </script>
@@ -122,8 +126,8 @@
 
 <body>
 
-  <a href="https://arcg.is/rvbbD0"target="_blank" class="addRecordBtn">Add Record</a>
-
+  <a href="https://arcg.is/rvbbD0" target="_blank" class="addRecordBtn">Add Record</a>
+  <div id="searchWidgetDiv"></div> <!-- Container for the search widget -->
   <div id="viewDiv"></div>
   <h1>JS Mobile</h1>
 </body>
