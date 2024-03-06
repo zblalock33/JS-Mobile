@@ -45,8 +45,9 @@
     "esri/Map", 
     "esri/views/MapView", 
     "esri/widgets/Locate", 
-    "esri/widgets/Search"
-  ], (esriConfig, Map, MapView, Locate, Search) => {
+    "esri/widgets/Search",
+    "esri/Layers/FeatureLayer"
+  ], (esriConfig, Map, MapView, Locate, Search,FeatureLayer) => {
 
         //adding in API Key
         esriConfig.apiKey = "YOUR_API_KEY_HERE";
@@ -67,6 +68,12 @@
             view : view
         });
 
+        //Create Feature Layer from feature service
+        const layer= new FeatureLayer({
+            //URL to the service
+            url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_bb9c1552c7d648f2b628046f00ced332_results/FeatureServer" // My URL to Survey123
+        });
+
         //Add the locate widget to the top left corner of the view
         view.ui.add (locateBtn, {
             position: "top-left"
@@ -80,6 +87,9 @@
             resultGraphicEnabled: true,
             autoSelect: true
         });
+
+        // Adding the survey123 layer to the map
+        map.add(layer);
 
         // Add the search widget to the top right corner of the view
         view.ui.add(searchWidget, {
